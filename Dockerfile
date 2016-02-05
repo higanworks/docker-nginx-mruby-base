@@ -13,7 +13,7 @@ RUN git clone -b using https://github.com/higanworks/ngx_mruby.git --depth 1
 RUN wget http://labs.frickle.com/files/ngx_cache_purge-2.3.tar.gz \
 && tar xvzf ngx_cache_purge-2.3.tar.gz
 
-ENV NGINX_SRC_VER=nginx-1.9.9
+ENV NGINX_SRC_VER=nginx-1.9.10
 ENV NGINX_CONFIG_OPT_ENV --with-debug --with-http_geoip_module --with-http_v2_module --with-http_stub_status_module --with-http_ssl_module --prefix=/usr/local/nginx --with-http_realip_module --with-http_addition_module --with-http_sub_module --with-http_gunzip_module --with-http_gzip_static_module --with-http_random_index_module --with-http_secure_link_module --add-module=/usr/local/src/ngx_cache_purge-2.3
 
 RUN mkdir -p /usr/local/share/GeoIP
