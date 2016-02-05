@@ -1,12 +1,11 @@
-FROM ubuntu:14.04
+FROM base/archlinux:2015.06.01
 MAINTAINER sawanoboriyu@higanworks.com
 
-RUN apt-get -y update \
-&& apt-get -y install autoconf build-essential git curl wget \
-      bison libcurl4-openssl-dev libhiredis-dev libmarkdown2-dev libcap-dev libcgroup-dev libpcre3 libpcre3-dev libmysqlclient-dev rake \
-&& apt-get -y build-dep nginx openssl \
-&& apt-get clean \
-&& rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN pacman -S openssl wget git make ruby hiredis libcap bison \
+ autoconf gcc \
+ pcre2 geoip curl markdown libmariadbclient \
+ -yy --noconfirm \
+&& rm -rf /var/lib/pacman /var/cache/pacman /tmp/* /var/tmp/*
 
 WORKDIR /usr/local/src
 RUN git clone -b using https://github.com/higanworks/ngx_mruby.git --depth 1
