@@ -5,7 +5,7 @@ RUN pacman -S openssl wget git make ruby hiredis libcap bison \
  autoconf gcc \
  pcre2 geoip curl markdown libmariadbclient \
  -yy --noconfirm \
-&& rm -rf /var/lib/pacman /var/cache/pacman /tmp/* /var/tmp/*
+&& rm -rf /var/lib/pacman/local/* /var/cache/pacman /tmp/* /var/tmp/*
 
 WORKDIR /usr/local/src
 RUN git clone -b using https://github.com/higanworks/ngx_mruby.git --depth 1
