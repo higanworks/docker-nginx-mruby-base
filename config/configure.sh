@@ -18,5 +18,6 @@
  --with-stream \
  --with-stream_ssl_module \
  --without-stream_limit_conn_module \
- --without-stream_access_module
+ --without-stream_access_module \
+ --add-module=../ngx_mruby/dependence/ngx_devel_kit
 
