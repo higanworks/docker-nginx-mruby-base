@@ -16,6 +16,7 @@ RUN apk add --update openssl-dev git curl geoip-dev file wget \
   && cd work/nginx/$NGINX_VER/nginx-$NGINX_VER \
   && make install \
   && apk del build-deps \
+  && mv mruby/bin/* /usr/local/bin/
   && rm -rf /var/cache/apk/* /usr/local/src/*
 
 # RUN cd /usr/local/share/GeoIP \
