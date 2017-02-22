@@ -1,2 +1,2 @@
 
-https://hub.docker.com/r/giraffi/docker-nginx-mruby-base/
+https://hub.docker.com/r/higanworks/docker-nginx-mruby-base/

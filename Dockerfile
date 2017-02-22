@@ -1,5 +1,5 @@
 FROM alpine:3.5
-MAINTAINER sawanoboriyu@higanworks.com
+LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 ENV NGINX_BUILD=0.9.14
 ENV NGINX_VER=1.11.10
