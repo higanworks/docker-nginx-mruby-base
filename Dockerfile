@@ -2,7 +2,7 @@ FROM alpine:3.12
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 ENV NGINX_BUILD=0.11.10
-ENV NGINX_VER=1.19/2
+ENV NGINX_VER=1.19.2
 
 RUN mkdir /usr/local/src /usr/local/share/GeoIP
 ADD config /config
