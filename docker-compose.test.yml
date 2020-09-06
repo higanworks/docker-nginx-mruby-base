@@ -1,0 +1,12 @@
+version: "3.8"
+services:
+  nginx:
+    build: .
+    volumes:
+      - ./test/nginx.conf:/usr/local/nginx/conf/nginx.conf
+    entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
+  sut:
+    image: amazonlinux:2
+    command: ["/usr/bin/curl", "-f", "nginx/hello"]
+    depends_on:
+      - nginx

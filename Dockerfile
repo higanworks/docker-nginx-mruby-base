@@ -24,4 +24,5 @@ RUN apk add --update openssl-dev git curl geoip-dev file wget \
 #  && wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCountry/GeoIP.dat.gz && gunzip GeoIP.dat.gz
 
 EXPOSE 8080
+WORKDIR /usr/local/nginx
 CMD ["/bin/sh"]
