@@ -2,7 +2,7 @@ FROM alpine:3.12
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 # https://github.com/cubicdaiya/nginx-build
-ENV NGINX_BUILD=0.11.10
+ENV NGINX_BUILD=0.11.11
 ENV NGINX_VER=1.19.5
 
 RUN mkdir /usr/local/src /usr/local/share/GeoIP
