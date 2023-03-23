@@ -1,4 +1,5 @@
-FROM alpine:3.17
+ARG TARGETPLATFORM=linux/arm64
+FROM --platform=${TARGETPLATFORM} alpine:3.17
 ARG TARGETARCH=arm64
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
