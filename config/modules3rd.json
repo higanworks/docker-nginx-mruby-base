@@ -1,0 +1,15 @@
+[
+  {
+    "name": "ngx_cache_purge",
+    "form": "git",
+    "url": "https://github.com/FRiCKLE/ngx_cache_purge.git",
+    "rev": "2.3"
+  },
+  {
+    "name": "ngx_mruby",
+    "form": "git",
+    "url": "https://github.com/matsumotory/ngx_mruby.git",
+    "rev": "v2.3.0",
+    "shprov": "/config/mruby/wrap_build.sh"
+  }
+]
