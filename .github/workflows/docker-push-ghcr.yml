@@ -38,7 +38,7 @@ jobs:
       - name: Run tests
         run: |
           if [ -f docker-compose.test.yml ]; then
-            docker-compose --file docker-compose.test.yml build --build-arg TARGETARCH=amd64
+            docker-compose --file docker-compose.test.yml build --build-arg TARGETARCH=amd64 --build-arg TARGETPLATFORM=linux/amd64
             docker-compose --file docker-compose.test.yml run sut
           else
             docker build . --file Dockerfile
