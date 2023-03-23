@@ -7,3 +7,4 @@ test:
 cleanup:
 	docker-compose --file docker-compose.test.yml stop
 	docker-compose --file docker-compose.test.yml rm -f
+	docker container prune -f
