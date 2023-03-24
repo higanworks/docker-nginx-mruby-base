@@ -1,6 +1,6 @@
-ARG TARGETPLATFORM=linux/arm64
+ARG TARGETPLATFORM
 FROM --platform=${TARGETPLATFORM} alpine:3.17
-ARG TARGETARCH=arm64
+ARG TARGETARCH
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 # https://github.com/cubicdaiya/nginx-build

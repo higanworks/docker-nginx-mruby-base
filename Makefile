@@ -1,7 +1,7 @@
 .PHONY: test cleanup
 
 test:
-	docker-compose --file docker-compose.test.yml build
+	docker-compose --file docker-compose.test.yml build --build-arg TARGETPLATFORM=linux/arm64 --build-arg TARGETARCH=arm64
 	docker-compose --file docker-compose.test.yml run sut
 
 cleanup:
