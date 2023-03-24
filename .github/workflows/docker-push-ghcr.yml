@@ -45,8 +45,8 @@ jobs:
           else
             docker build . --file Dockerfile
           fi
-          docker container prune -y
-          docker image prune -y
+          docker container prune -f
+          docker image prune -f
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
