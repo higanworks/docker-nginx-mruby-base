@@ -1,5 +1,5 @@
 ARG TARGETPLATFORM
-FROM --platform=${TARGETPLATFORM} alpine:3.17
+FROM alpine:3.17
 ARG TARGETARCH
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 

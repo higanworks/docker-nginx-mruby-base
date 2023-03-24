@@ -40,9 +40,13 @@ jobs:
           if [ -f docker-compose.test.yml ]; then
             docker-compose --file docker-compose.test.yml build --build-arg TARGETARCH=amd64 --build-arg TARGETPLATFORM=linux/amd64
             docker-compose --file docker-compose.test.yml run sut
+            docker-compose --file docker-compose.test.yml stop
+            docker-compose --file docker-compose.test.yml rm -f
           else
             docker build . --file Dockerfile
           fi
+          docker container prune -y
+          docker image prune -y
 
       # Install the cosign tool except on PR
       # https://github.com/sigstore/cosign-installer
@@ -62,8 +66,6 @@ jobs:
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-        with:
-          platforms: linux/amd64,linux/arm64
 
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v2
@@ -87,13 +89,9 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           context: .
-          builder: ${{ steps.buildx.outputs.name }}
           platforms: ${{ steps.buildx.outputs.platforms }}
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
 
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
