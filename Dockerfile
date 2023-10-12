@@ -1,12 +1,12 @@
 ARG TARGETPLATFORM
-FROM alpine:3.17
+FROM alpine:3.18
 ARG TARGETARCH
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 # https://github.com/cubicdaiya/nginx-build
 ENV NGINX_BUILD=0.13.1
-ENV NGINX_VER=1.23.3
-ENV ZLIB_VERSION=1.2.13
+ENV NGINX_VER=1.25.2
+ENV ZLIB_VERSION=1.3
 
 RUN mkdir /usr/local/src /usr/local/share/GeoIP
 ADD config /config
