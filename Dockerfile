@@ -1,12 +1,11 @@
 ARG TARGETPLATFORM
-FROM alpine:3.18
+FROM alpine:3.24
 ARG TARGETARCH
 LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 # https://github.com/cubicdaiya/nginx-build
-ENV NGINX_BUILD=0.13.1
-ENV NGINX_VER=1.25.2
-ENV ZLIB_VERSION=1.3
+ENV NGINX_BUILD=0.16.25
+ENV NGINX_VER=1.30.4
 
 RUN mkdir /usr/local/src /usr/local/share/GeoIP
 ADD config /config
@@ -16,7 +15,8 @@ RUN apk add --update openssl-dev git curl geoip-dev file wget \
   && apk add --virtual build-deps build-base ruby-rake bison perl \
   && curl -L https://github.com/cubicdaiya/nginx-build/releases/download/v$NGINX_BUILD/nginx-build-linux-${TARGETARCH}-$NGINX_BUILD.tar.gz -o nginx-build.tar.gz \
   && tar xvzf nginx-build.tar.gz \
-  && ./nginx-build -verbose -v $NGINX_VER -d work -pcre -zlib -zlibversion=$ZLIB_VERSION -m /config/modules3rd.json -c /config/configure.sh --clear \
+  && export CPPFLAGS="-DFFC_DEBUG=0" \
+  && ./nginx-build -verbose -v $NGINX_VER -d work -pcre -zlib -m /config/modules3rd.json -c /config/configure.sh --clear \
   && cd work/nginx/$NGINX_VER/nginx-$NGINX_VER \
   && make install \
   && apk del build-deps \
