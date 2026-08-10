@@ -6,7 +6,7 @@ services:
       - ./test/nginx.conf:/usr/local/nginx/conf/nginx.conf
     entrypoint: ["/usr/local/nginx/sbin/nginx", "-g", "daemon off;"]
   sut:
-    image: amazonlinux:2
+    image: amazonlinux:2023
     command: ["/usr/bin/curl", "-f", "nginx/hello"]
     depends_on:
       - nginx
