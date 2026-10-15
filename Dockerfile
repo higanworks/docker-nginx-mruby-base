@@ -12,7 +12,7 @@ ADD config /config
 
 WORKDIR /usr/local/src
 RUN apk add --update openssl-dev git curl geoip-dev file wget \
-  && apk add --virtual build-deps build-base ruby-rake bison perl \
+  && apk add --virtual build-deps build-base linux-headers ruby-rake bison perl \
   && curl -L https://github.com/cubicdaiya/nginx-build/releases/download/v$NGINX_BUILD/nginx-build-linux-${TARGETARCH}-$NGINX_BUILD.tar.gz -o nginx-build.tar.gz \
   && tar xvzf nginx-build.tar.gz \
   && export CPPFLAGS="-DFFC_DEBUG=0" \
