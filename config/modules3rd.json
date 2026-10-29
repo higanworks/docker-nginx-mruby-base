@@ -9,7 +9,7 @@
     "name": "ngx_mruby",
     "form": "git",
     "url": "https://github.com/matsumotory/ngx_mruby.git",
-    "rev": "v2.7.0",
+    "rev": "v2.7.2",
     "shprov": "/config/mruby/wrap_build.sh"
   }
 ]
