@@ -5,7 +5,7 @@ LABEL MAINTAINER=sawanoboriyu@higanworks.com
 
 # https://github.com/cubicdaiya/nginx-build
 ENV NGINX_BUILD=0.16.32
-ENV NGINX_VER=1.30.6
+ENV NGINX_VER=1.30.7
 
 RUN mkdir /usr/local/src /usr/local/share/GeoIP
 ADD config /config
